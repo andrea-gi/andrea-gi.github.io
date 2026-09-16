@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrea Giarduz — Software Engineer</title>
+<meta name="description" content="Andrea Giarduz, Software Engineer. GitHub, LinkedIn, and contact.">
+<meta property="og:title" content="Andrea Giarduz — Software Engineer">
+<meta property="og:description" content="Andrea Giarduz, Software Engineer. GitHub, LinkedIn, and contact.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Andrea Giarduz — Software Engineer">
+<meta name="twitter:description" content="Andrea Giarduz, Software Engineer. GitHub, LinkedIn, and contact.">
+<link rel="stylesheet" href="styles.css">
+<style>
+  :root {
+    --bg: #F6F1E7;
+    --bg-alt: #EEE6D5;
+    --text: #2A2620;
+    --text-muted: #6B6255;
+    --accent: #3E6487;
+    --accent-soft: #3E648722;
+    --border: #DCD2BB;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #17140F;
+    --bg-alt: #201C15;
+    --text: #EDE6D6;
+    --text-muted: #A79A82;
+    --accent: #8FD19E;
+    --accent-soft: #8FD19E22;
+    --border: #3A342A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17140F;
+      --bg-alt: #201C15;
+      --text: #EDE6D6;
+      --text-muted: #A79A82;
+      --accent: #8FD19E;
+      --accent-soft: #8FD19E22;
+      --border: #3A342A;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -48px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 16px;
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 2px;
+    z-index: 100;
+    transition: top 0.15s ease;
+  }
+
+  .skip-link:focus {
+    top: 12px;
+  }
+
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header / nav */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    z-index: 10;
+  }
+
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .nav-name {
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-muted);
+    transition: color 0.15s ease;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--text-muted);
+    border-radius: 50%;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+
+  .icon-link:hover { color: var(--accent); background: var(--accent-soft); }
+  .icon-link svg { width: 17px; height: 17px; fill: currentColor; }
+
+  #theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  #theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+  #theme-toggle svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+  #theme-toggle .icon-moon { display: block; }
+  #theme-toggle .icon-sun { display: none; }
+
+  :root[data-theme="dark"] #theme-toggle .icon-moon,
+  :root[data-theme="dark"] #theme-toggle .icon-sun { display: none; }
+  :root[data-theme="dark"] #theme-toggle .icon-sun { display: block; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) #theme-toggle .icon-moon { display: none; }
+    :root:not([data-theme="light"]) #theme-toggle .icon-sun { display: block; }
+  }
+
+  #menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 0;
+  }
+
+  #menu-toggle svg { width: 16px; height: 16px; }
+
+  @media (max-width: 860px) {
+    nav.nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease;
+    }
+
+    nav.nav-links.open { max-height: 320px; }
+
+    nav.nav-links ul {
+      flex-direction: column;
+      gap: 0;
+      padding: 8px 24px 16px;
+    }
+
+    nav.nav-links li { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    nav.nav-links li:last-child { border-bottom: none; }
+    nav.nav-links a { font-size: 15px; display: block; }
+
+    #menu-toggle { display: inline-flex; }
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+    border-top: none;
+  }
+
+  .avatar {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    display: block;
+  }
+
+  .avatar[hidden] {
+    display: none;
+  }
+
+  .avatar-fallback {
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .avatar-fallback:not([hidden]) { display: flex; }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 7vw, 54px);
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .hero .role {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    margin: 0 0 24px;
+  }
+
+  .hero .role::before {
+    content: '> ';
+    color: var(--text-muted);
+  }
+
+  .hero p.lede {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 0 20px;
+  }
+
+  .hero p.hobbies {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 0 24px;
+  }
+
+  .hero .current {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 12px;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.15em;
+    background: var(--accent);
+    margin-left: 3px;
+    vertical-align: middle;
+    animation: blink 1.1s step-end infinite;
+  }
+
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* Sections */
+  section {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  section[id] {
+    scroll-margin-top: 88px;
+  }
+
+  section[id]:nth-of-type(even) {
+    background: var(--bg-alt);
+  }
+
+  section h2 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+
+  section > .wrap > p,
+  section p.about-text {
+    color: var(--text-muted);
+    max-width: 540px;
+  }
+
+  /* About */
+  .about-text { font-size: 16.5px; }
+
+  /* Skills */
+  .skills-prompt {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 18px;
+  }
+
+  .skills-prompt::before { content: '$ '; color: var(--accent); }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .tag-list li {
+    font-family: var(--mono);
+    font-size: 13px;
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 2px;
+    color: var(--text);
+  }
+
+  /* Timeline (experience / education) */
+  .timeline {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-left: 1px solid var(--border);
+  }
+
+  .timeline li {
+    position: relative;
+    padding: 0 0 28px 26px;
+  }
+
+  .timeline li:last-child { padding-bottom: 0; }
+
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
+  .timeline-date {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+  }
+
+  .timeline-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+
+  .timeline-org {
+    font-size: 14.5px;
+    color: var(--accent);
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .uni-badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  .timeline-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+    max-width: 500px;
+  }
+
+  /* Projects */
+  .project {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .project:first-of-type { border-top: none; padding-top: 0; }
+
+  .project-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+
+  .project-name {
+    font-family: var(--mono);
+    font-size: 15.5px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .project-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .project-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 10px;
+    max-width: 520px;
+  }
+
+  .project-stack {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Contact */
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .btn.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+  }
+
+  .btn.primary:hover { opacity: 0.88; color: var(--bg); }
+
+  /* Footer */
+  footer {
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer a { text-decoration: none; color: var(--text-muted); }
+  footer a:hover { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Andrea Giarduz</a>
+    <nav class="nav-links" id="nav-links">
+      <ul>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-link" href="https://github.com/andrea-gi" target="_blank" rel="noopener" aria-label="GitHub profile">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      </a>
+      <a class="icon-link" href="https://linkedin.com/in/andrea-gi" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 11.02-4.14 2.07 2.07 0 01-.02 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke-linecap="round"/></svg>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <section class="hero">
+       <img src="profile.jpg" alt="Andrea Giarduz" class="avatar" id="avatar-img"
+         onerror="this.hidden=true; document.getElementById('avatar-fallback').hidden=false;">
+      <div class="avatar-fallback" id="avatar-fallback" hidden>AG</div>
+      <h1>Andrea Giarduz</h1>
+      <p class="role" id="hero-role">Software Engineer</p>
+      <p class="lede">I solve problems by building backend systems, and I love finding ways to weave AI into them.</p>
+      <p class="hobbies">Off the clock, you'll find me out on a run, doing street photography, or chasing down good tunes.</p>
+      <p class="current" id="hero-current">open to new opportunities, all around Europe<span class="cursor"></span></p>
+    </section>
+  </div>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <ul class="timeline">
+        <li>
+          <p class="timeline-date">Jun. 2023 — Present</p>
+          <p class="timeline-title">Chief Technology Officer, Founding Engineer</p>
+          <p class="timeline-org">Zite AI · Chicago, IL</p>
+          <p class="timeline-desc">Built and deployed production-ready deep learning models for health analytics, from the underlying data pipeline to the APIs serving them. As primary engineer on a 2-person team, helped raise $400K in funding and close a $120K/yr enterprise contract.</p>
+        </li>
+        <li>
+          <p class="timeline-date">Jan. 2022 — Jun. 2023</p>
+          <p class="timeline-title">Research Assistant</p>
+          <p class="timeline-org">University of Illinois Chicago · Chicago, IL</p>
+          <p class="timeline-desc">Designed and validated an online algorithm for cloud resource scheduling, work sponsored by an NSF grant on algorithmic and market design challenges in cloud computing.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <p class="timeline-date">May 2023</p>
+          <p class="timeline-title">M.S. Computer Science — Double Degree</p>
+          <p class="timeline-org"><span class="uni-badge">UIC</span> University of Illinois Chicago · Chicago, IL</p>
+        </li>
+        <li>
+          <p class="timeline-date">May 2023</p>
+          <p class="timeline-title">M.S. Computer Science and Engineering — Double Degree</p>
+          <p class="timeline-org"><span class="uni-badge">POLIMI</span> Politecnico di Milano · Milan, Italy</p>
+          <p class="timeline-desc">Cum laude</p>
+        </li>
+        <li>
+          <p class="timeline-date">Sep. 2020</p>
+          <p class="timeline-title">B.S. Engineering of Computing Systems</p>
+          <p class="timeline-org"><span class="uni-badge">POLIMI</span> Politecnico di Milano · Milan, Italy</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <p class="skills-prompt">stack --list</p>
+      <ul class="tag-list">
+        <li>Python</li>
+        <li>Java</li>
+        <li>JavaScript</li>
+        <li>SQL</li>
+        <li>React</li>
+        <li>Node.js</li>
+        <li>Flask</li>
+        <li>Docker</li>
+        <li>PostgreSQL</li>
+        <li>AWS</li>
+        <li>Apache Spark</li>
+        <li>PyTorch</li>
+        <li>scikit-learn</li>
+        <li>Machine Learning</li>
+        <li>CI/CD</li>
+        <li>REST APIs</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+
+      <div class="project">
+        <div class="project-head">
+          <span class="project-name">SubscribeME</span>
+          <a class="project-link" href="https://github.com/Veronica-gg/SubscribeMe" target="_blank" rel="noopener">repo ↗</a>
+        </div>
+        <p class="project-desc">A React Native mobile app to manage and share users' paid subscriptions, with a Firebase backend built on Node.js Cloud Functions and Firestore.</p>
+        <p class="project-stack">React Native · Node.js · Firebase</p>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <span class="project-name">How I Met Your Malware</span>
+          <a class="project-link" href="https://github.com/andrea-gi/MalwareDetection" target="_blank" rel="noopener">repo ↗</a>
+        </div>
+        <p class="project-desc">Evaluated 3 supervised machine learning techniques to statically detect malware, analyzing 19,000 executable samples across 70 header-derived features.</p>
+        <p class="project-stack">Python · scikit-learn · Machine Learning</p>
+      </div>
+
+      <div class="project">
+        <div class="project-head">
+          <span class="project-name">Automated Performance Bottleneck Analysis</span>
+        </div>
+        <p class="project-desc">Built a semi-automated framework with Huawei Research Zurich to detect performance bottlenecks in architectural configurations, validated on an out-of-order ARM core across 46 synthetic benchmarks.</p>
+        <p class="project-stack">Python · Pandas · gem5</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p class="about-text">The fastest way to reach me is email — click below and it'll open in your mail app.</p>
+      <div class="contact-actions">
+        <a href="#" id="mailto-btn" class="btn primary">Say hello</a>
+        <a href="https://github.com/andrea-gi" target="_blank" rel="noopener" class="btn">GitHub</a>
+        <a href="https://linkedin.com/in/andrea-gi" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Andrea Giarduz</span>
+    <span>
+      <a href="https://github.com/andrea-gi" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/andrea-gi" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
