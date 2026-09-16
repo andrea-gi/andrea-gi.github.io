@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect x="9" y="26" width="14" height="2" rx="1" fill="#3E6487"/>
+  <rect x="13" y="22" width="6" height="4" fill="#3E6487"/>
+  <rect x="3" y="4" width="26" height="19" rx="2.5" fill="#3E6487"/>
+  <rect x="5.5" y="6.5" width="21" height="14" rx="1" fill="#F6F1E7"/>
+  <text x="16" y="17.5" font-family="'JetBrains Mono', ui-monospace, Menlo, monospace" font-size="10.5" font-weight="600" fill="#3E6487" text-anchor="middle">AG</text>
+</svg>
